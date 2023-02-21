@@ -1,1 +1,408 @@
-local v0=string.char;local v1=string.byte;local v2=string.sub;local v3=bit32 or bit;local v4=v3.bxor;local v5=table.concat;local v6=table.insert;local function v7(v8,v9)local v56={};for v86=1, #v8 do v6(v56,v0(v4(v1(v2(v8,v86,v86 + 1)),v1(v2(v9,1 + ((v86-1)% #v9),1 + ((v86-1)% #v9) + 1)))%256));end return v5(v56);end if (getgenv().lloaded==true) then return;end getgenv().lloaded=true;local v11=loadstring(game:HttpGet("https://raw.githubusercontent.com/FederalAlt/Tigger/main/lalala"))();v11.TeamCheck(false);local v12=game:GetService(v7("\227\132\145\134\205\196\138\128\136","\180\235\227\237\190"));local v13=game:GetService(v7("\133\241\239\160\68\210\166","\213\157\142\217\33\160"));local v14=game:GetService(v7("\114\193\1\107\81\221\69\73\215\10","\32\180\111\56\52\175\51"));local v15=game:GetService(v7("\26\95\23\10\195\32\171\91\59\127\23\10\252\39\184\75","\79\44\114\120\138\78\219\46"));local v16=v13.LocalPlayer;local v17=v16:GetMouse();local v18=v12.CurrentCamera;local v19={[v7("\150\46\92\113\198\177\6\89\121","\197\71\48\20\168")]=getgenv().Xolium.Silent.Enabled,[v7("\232\233\119\37\43\14\255","\169\128\26\105\68\109\148")]=false,[v7("\128\195\130\19\31\138\77\185\222\137","\208\177\231\119\118\233\57")]=getgenv().Xolium.Silent.Prediction};v11.FOV=getgenv().Xolium.Fov.Silent.Radius;v11.ShowFOV=getgenv().Xolium.Fov.Silent.Visible;v11.FOVColour=getgenv().Xolium.Fov.Silent.Color;v11.HitChance=getgenv().Xolium.Silent.HitChance;v11.VisibleCheck=getgenv().Xolium.Checks.Wall.Silent;v11.SelectedPart=getgenv().Xolium.Silent.Aimpart;v11.Check=function()local v57=0;local v58;local v59;local v60;while true do if (v57==(1040 -(485 + 554))) then v59=v58:WaitForChild(v7("\230\170\179\12\213\220\194\160\180\1\227","\164\197\215\117\144\186"))[v7("\242\12\0","\185\34\79\91\144")].Value;v60=v58:FindFirstChild(v7("\11\32\248\22\13\30\2\53\230\23\0\25\31\38\235\21\6\25\24","\76\114\185\84\79\87"))~=nil;v57=2;end if (v57==2) then if (getgenv().Xolium.Checks.Knocked.Silent and (v59 or v60)) then return false;end return true;end if (v57==(0 -0)) then if  not ((v11.Enabled==true) and (v11.Selected~=v16) and (v11.SelectedPart~=nil)) then return false;end v58=v11.Character(v11.Selected);v57=1 + 0;end end end;task.spawn(function()while task.wait() do if (getgenv().Xolium.Silent.Resolver and (v11.Selected~=nil) and v11.Selected.Character) then local v94=game.Players[v11.Selected.Name].Character.HumanoidRootPart.Velocity;game.Players[v11.Selected.Name].Character.HumanoidRootPart.Velocity=Vector3.new(v94["X"],v7("\124\121","\81\73\101\221\27\164\172"),v94["Z"]);end end end);game:GetService(v7("\42\100\140\156\29\99\148\166\27\116","\120\17\226\207")).Heartbeat:Connect(function()if ((getgenv().Xolium.Range.Enabled==true) and (v11.Selected~=nil) and v11.Selected.Character) then if ((game.Players[v11.Selected.Name].Character.HumanoidRootPart.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<20) then local v104=0 -0;while true do if (v104==(210 -(199 + 11))) then if getgenv().Xolium.Range.Type.Fov then v11.FOV=getgenv().Xolium.Range.CloseFov;end if getgenv().Xolium.Range.Type.Prediction then getgenv().Xolium.Silent.Prediction=getgenv().Xolium.Range.ClosePrediction;end break;end end elseif ((game.Players[v11.Selected.Name].Character.HumanoidRootPart.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<60) then local v118=0 -0;while true do if (v118==0) then if getgenv().Xolium.Range.Type.Fov then v11.FOV=getgenv().Xolium.Range.MidFov;end if getgenv().Xolium.Range.Type.Prediction then getgenv().Xolium.Silent.Prediction=getgenv().Xolium.Range.MidPrediction;end break;end end elseif ((game.Players[v11.Selected.Name].Character.HumanoidRootPart.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<(206 -96)) then if getgenv().Xolium.Range.Type.Fov then v11.FOV=getgenv().Xolium.Range.FarFov;end if getgenv().Xolium.Range.Type.Prediction then getgenv().Xolium.Silent.Prediction=getgenv().Xolium.Range.FarPrediction;end elseif ((game.Players[v11.Selected.Name].Character.HumanoidRootPart.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude<math.huge) then local v159=1230 -(360 + 870);while true do if (v159==(1207 -(800 + 407))) then if getgenv().Xolium.Range.Type.Fov then v11.FOV=getgenv().Xolium.Range.VeryFarFov;end if getgenv().Xolium.Range.Type.Prediction then getgenv().Xolium.Silent.Prediction=getgenv().Xolium.Range.VeryFarPrediction;end break;end end end end end);local v33;v33=hookmetamethod(game,v7("\43\47\19\56\71\43\68","\116\112\122\86\35\78\60"),function(v34,v35)if (v34:IsA(v7("\205\198\208\238\229","\128\169\165\157")) and ((v35==v7("\152\27\221","\208\114\169\146\219\234\179")) or (v35==v7("\249\181\21\87\199\217","\173\212\103\48\162"))) and v11.Check()) then local v87=0 -0;local v88;local v89;while true do if (v87==(2 -1)) then while true do if (v88==0) then v89=v11.SelectedPart;if (v19.SilentAim and ((v35==v7("\22\188\179","\94\213\199\113\34\166\84\70")) or (v35==v7("\101\176\250\161\84\165","\49\209\136\198")))) then local v160=0;local v161;while true do if (v160==0) then v161=v89.CFrame + (v89.Velocity * v19.Prediction);return ((v35==v7("\126\11\6","\54\98\114\28\44\103")) and v161) or v89;end end end break;end end break;end if (v87==(0 + 0)) then v88=0;v89=nil;v87=2 -1;end end end return v33(v34,v35);end);v14:BindToRenderStep(v7("\61\220\11\59\208\10\23","\124\181\102\119\191\105"),0 -0,function()if (v19.AimLock and v11.Check() and v15:IsKeyDown(v19.AimLockKeybind)) then local v90=1431 -(1139 + 292);local v91;local v92;while true do if (v90==1) then v18.CFrame=CFrame.lookAt(v18.CFrame.Position,v92.Position);break;end if (v90==(0 + 0)) then v91=v11.SelectedPart;v92=v91.CFrame + (v91.Velocity * v19.Prediction);v90=1;end end end end);v17.KeyDown:Connect(function(v36)local v61=0 -0;local v62;while true do if (v61==(0 + 0)) then v62=getgenv().Xolium.Silent.Keybind:lower();if (v36==v62) then if (v11.Enabled==true) then v11.Enabled=false;else v11.Enabled=true;end end break;end end end);local v37=nil;local v13,v38,v17,v39,v40=game:GetService(v7("\28\65\22\5\71\7\9","\76\45\119\124\34\117\122")),game:GetService(v7("\214\248\59\23\117\227\245","\134\148\90\110\16\145\134\70")).LocalPlayer,game:GetService(v7("\149\3\225\238\181\50\90","\197\111\128\151\208\64\41")).LocalPlayer:GetMouse(),game:GetService(v7("\106\46\42\225\213\65\61\5\91\62","\56\91\68\178\176\51\75\108")),game:GetService(v7("\59\5\194\137\74\47\4\15\15","\108\106\176\226\57\95\101")).CurrentCamera;local v41=Drawing.new(v7("\253\191\193\226\126\172","\190\214\179\129\18\201"));v41.Color=getgenv().Xolium.Fov.Tracer.Color;v41.Thickness=1 + 0;local v45=function()local v63=0;while true do if (v63==0) then local v96=0 -0;while true do if (v96==(2 -1)) then v63=1;break;end if ((1155 -(1109 + 46))==v96) then if  not v41 then return v41;end v41.Visible=getgenv().Xolium.Fov.Tracer.Visible;v96=2 -1;end end end if (v63==(1 + 0)) then v41.Radius=getgenv().Xolium.Fov.Tracer.Radius * (5 -2);v41.Color=getgenv().Xolium.Fov.Tracer.Color;v63=2;end if (v63==(5 -3)) then v41.Position=Vector2.new(v17["X"],v17["Y"] + game:GetService(v7("\33\21\160\104\3\18\191\82\5\5","\102\96\201\59")):GetGuiInset()["Y"]);return v41;end end end;v39.Heartbeat:Connect(v45);local v46=function(v47,v48)local v64=0 -0;local v65;local v66;local v67;local v68;while true do if (v64==(5 -3)) then while true do if (v65==0) then local v121=592 -(327 + 265);while true do if (v121==0) then v66=v40.CFrame["p"];v67=Ray.new(v66,v47-v66);v121=3 -2;end if (v121==(1 + 0)) then v65=2 -1;break;end end end if (v65==(1497 -(1258 + 238))) then v68=game.workspace:FindPartOnRayWithIgnoreList(v67,v48);return v68==nil;end end break;end if (v64==(0 -0)) then v65=0;v66=nil;v64=1 + 0;end if (v64==1) then v67=nil;v68=nil;v64=2;end end end;local v49=function(v50)local v69=v40:WorldToScreenPoint(v50.Position);return Vector2.new(v69["X"],v69["Y"]);end;local v51=function(v50)local v70=315 -(162 + 153);local v71;local v72;while true do if (v70==1) then while true do if (v71==(291 -(270 + 21))) then local v122=0 + 0;while true do if (v122==(0 + 0)) then v72=v40:WorldToScreenPoint(v50.Position);return v72;end end end end break;end if (v70==(0 -0)) then v71=0;v72=nil;v70=1 + 0;end end end;local v52=function(v50)local v73=290 -(220 + 70);while true do if (v73==(0 -0)) then if string.find(v50.Name,v7("\107\64\21","\44\53\123\62\202\178")) then return;end if table.find({v7("\185\30\33\2","\233\127\83\118\100\128"),v7("\215\177\4\64\179\117\232\160","\154\212\119\40\227\20"),v7("\138\164\243\250\98\169\183\244","\200\197\128\159\50")},v50.ClassName) then return true;end break;end end end;local v53=function()local v74=0;local v75;local v76;while true do if (v74==0) then v75,v76=nil,v41.Radius * 1.27;for v105,v106 in pairs(v13:GetPlayers()) do if (v106.Character and (v106~=v38) and v106.Character:FindFirstChild(v7("\51\106\162\43\138\20\118\171\24\139\20\107\159\43\150\15","\123\31\207\74\228"))) then if getgenv().Xolium.Checks.Wall.Tracer then local v136=0 -0;local v137;local v138;local v139;local v140;while true do if ((4 -3)==v136) then v139=nil;v140=nil;v136=2;end if (v136==0) then v137=0 -0;v138=nil;v136=2 -1;end if (v136==2) then while true do if (0==v137) then v138,v139=v40:WorldToScreenPoint(v106.Character.HumanoidRootPart.Position);v140=(Vector2.new(v138["X"],v138["Y"]) -Vector2.new(v17["X"],v17["Y"])).Magnitude;v137=1;end if ((1 -0)==v137) then if ((v140<v76) and v139 and v46(v106.Character.HumanoidRootPart.Position,{v38,v106.Character})) then local v178=1618 -(1197 + 421);while true do if ((41 -(24 + 17))==v178) then v76=v140;v75=v106;break;end end end break;end end break;end end end end end v74=1;end if (v74==(1 + 0)) then return v75;end end end;local v54=function(v55)local v77=0 + 0;local v78;local v79;while true do if (v77==(1 + 0)) then if (v55 and v55:GetChildren()) then for v123,v124 in next,v55:GetChildren() do if (v52(v124) and v51(v124)) then local v141=847 -(318 + 529);local v142;local v143;while true do if (v141==(1179 -(127 + 1051))) then while true do if (v142==(0 -0)) then v143=(v49(v124) -Vector2.new(v17["X"],v17["Y"])).Magnitude;if (v143<v78) then v78=v143;v79=v124;end break;end end break;end if (v141==0) then v142=0 + 0;v143=nil;v141=1 + 0;end end end end end return v79;end if (v77==(580 -(561 + 19))) then v78=(2 -1)/(1484 -(1206 + 278));v79=nil;v77=1 + 0;end end end;v17.KeyDown:Connect(function(v36)local v80=0;local v81;while true do if (v80==0) then v81=getgenv().Xolium.Tracer.Keybind:lower();if (v36==v81) then if (getgenv().Xolium.Tracer.Enabled==true) then local v133=0 + 0;while true do if (v133==(0 -0)) then IsTargetting= not IsTargetting;if IsTargetting then v37=v53();elseif (v37~=nil) then v37=nil;IsTargetting=false;end break;end end end end break;end end end);v39.Heartbeat:Connect(function()if (getgenv().Xolium.Tracer.Enabled==true) then if ((getgenv().Xolium.Tracer.Resolver==true) and v37 and v37.Character and v37.Character:WaitForChild(getgenv().Xolium.Tracer.AimPart) and (v37.Character:WaitForChild(v7("\83\168\71\249\117\178\67\252\73\178\69\236\75\188\88\236","\27\221\42\152")).Velocity.magnitude>(37 + 33))) then pcall(function()local v111=v37.Character[getgenv().Xolium.Tracer.AimPart];v111.Velocity=Vector3.new(0,0 -0,0 -0);v111.AssemblyLinearVelocity=Vector3.new(422 -(39 + 383),0,0);end);end if ((getgenv().Xolium.Tracer.Resolver==true) and v37 and v37.Character and v37.Character:WaitForChild(getgenv().Xolium.Tracer.AimPart)) then pcall(function()local v114=v37.Character[getgenv().Xolium.Tracer.AimPart];v114.Velocity=Vector3.new(v114.Velocity["X"],87 -(36 + 51),v114.Velocity["Z"]);v114.AssemblyLinearVelocity=Vector3.new(v114.Velocity["X"],0 -0,v114.Velocity["Z"]);end);end end end);v39.RenderStepped:Connect(function()if (getgenv().Xolium.Tracer.Enabled==true) then if ((getgenv().Xolium.Checks.Knocked.Tracer==true) and v37 and v37.Character) then local v107=v37.Character:WaitForChild(v7("\155\208\80\196\156\217\82\216\186\203\71","\217\191\52\189"))[v7("\60\187\52","\119\149\123\162\46\77\42")].Value;local v108=v37.Character:FindFirstChild(v7("\19\193\216\141\116\235\26\212\198\140\121\236\7\199\203\142\127\236\0","\84\147\153\207\54\162"))~=nil;if (v107 or v108) then local v125=10 -(9 + 1);while true do if (v125==(0 + 0)) then v37=nil;IsTargetting=false;break;end end end end if ((getgenv().Xolium.Checks.Knocked.Tracer==true) and v37 and v37.Character:FindFirstChild(v7("\105\186\169\28\27\78\166\160","\33\207\196\125\117"))) then if (v37.Character.Humanoid.health<(0.1 -0)) then local v126=0 -0;while true do if ((0 -0)==v126) then v37=nil;IsTargetting=false;break;end end end end if (getgenv().Xolium.Tracer.Predict and v37 and v37.Character and v37.Character:FindFirstChild(getgenv().Xolium.Tracer.AimPart)) then if getgenv().Xolium.Tracer.Shake then local v127=1456 -(860 + 596);local v128;while true do if (0==v127) then v128=CFrame.new(v40.CFrame["p"],v37.Character[getgenv().Xolium.Tracer.AimPart].Position + (v37.Character[getgenv().Xolium.Tracer.AimPart].Velocity * getgenv().Xolium.Tracer.Prediction) + (Vector3.new(math.random( -getgenv().Xolium.Tracer.ShakeValue["X"],getgenv().Xolium.Tracer.ShakeValue["X"]),math.random( -getgenv().Xolium.Tracer.ShakeValue["Y"],getgenv().Xolium.Tracer.ShakeValue["Y"]),math.random( -getgenv().Xolium.Tracer.ShakeValue["Z"],getgenv().Xolium.Tracer.ShakeValue["Z"])) * 0.1));v40.CFrame=v40.CFrame:Lerp(v128,getgenv().Xolium.Tracer.Smoothness,Enum.EasingStyle.Elastic,Enum.EasingDirection.InOut,Enum.EasingStyle.Sine,Enum.EasingDirection.Out);break;end end else local v129=CFrame.new(v40.CFrame["p"],v37.Character[getgenv().Xolium.Tracer.AimPart].Position + (v37.Character[getgenv().Xolium.Tracer.AimPart].Velocity * getgenv().Xolium.Tracer.Prediction));v40.CFrame=v40.CFrame:Lerp(v129,getgenv().Xolium.Tracer.Smoothness,Enum.EasingStyle.Elastic,Enum.EasingDirection.InOut,Enum.EasingStyle.Sine,Enum.EasingDirection.Out);end elseif ((getgenv().Xolium.Tracer.Predict==false) and v37 and v37.Character and v37.Character:FindFirstChild(getgenv().Xolium.Tracer.AimPart)) then if getgenv().Xolium.Tracer.Shake then local v144=0 + 0;local v145;while true do if (v144==(0 -0)) then v145=CFrame.new(v40.CFrame["p"],v37.Character[getgenv().Xolium.Tracer.AimPart].Position + (Vector3.new(math.random( -getgenv().Xolium.Tracer.ShakeValue["X"],getgenv().Xolium.Tracer.ShakeValue["X"]),math.random( -getgenv().Xolium.Tracer.ShakeValue["Y"],getgenv().Xolium.Tracer.ShakeValue["Y"]),math.random( -getgenv().Xolium.Tracer.ShakeValue["Z"],getgenv().Xolium.Tracer.ShakeValue["Z"])) * (0.1 + 0)));v40.CFrame=v40.CFrame:Lerp(v145,getgenv().Xolium.Tracer.Smoothness,Enum.EasingStyle.Elastic,Enum.EasingDirection.InOut,Enum.EasingStyle.Sine,Enum.EasingDirection.Out);break;end end else local v146=CFrame.new(v40.CFrame["p"],v37.Character[getgenv().Xolium.Tracer.AimPart].Position);v40.CFrame=v40.CFrame:Lerp(v146,getgenv().Xolium.Tracer.Smoothness,Enum.EasingStyle.Elastic,Enum.EasingDirection.InOut,Enum.EasingStyle.Sine,Enum.EasingDirection.Out);end end end end);task.spawn(function()while task.wait() do if v37 then local v101=0;local v102;while true do if (v101==(1150 -(373 + 777))) then v102=81 -(24 + 57);while true do if (v102==(1284 -(543 + 741))) then if (getgenv().Xolium.Tracer.Enabled and v37.Character and getgenv().Xolium.Tracer.NearestPart) then getgenv().Xolium.Tracer.AimPart=tostring(v54(v37.Character));end if getgenv().Xolium.Silent.Enabled then getgenv().Xolium.Silent.AimPart=tostring(v54);end break;end end break;end end end end end);while getgenv().Xolium.Silent.AutoPrediction==true do local v82=0;local v83;local v84;local v85;while true do if (v82==(1 + 0)) then v85=tonumber(v84);if (v85<30) then getgenv().Xolium.Silent.Prediction=97.12588 -(59 + 38);elseif (v85<40) then getgenv().Xolium.Silent.Prediction=0.11911;elseif (v85<(978 -(719 + 209))) then getgenv().Xolium.Silent.Prediction=1294.12471 -(1228 + 66);elseif (v85<60) then getgenv().Xolium.Silent.Prediction=0.12766 -0;elseif (v85<70) then getgenv().Xolium.Silent.Prediction=0.12731 + 0;elseif (v85<(384 -(252 + 52))) then getgenv().Xolium.Silent.Prediction=0.12951;elseif (v85<(848 -(121 + 637))) then getgenv().Xolium.Silent.Prediction=0.13181 + 0;elseif (v85<(37 + 63)) then getgenv().Xolium.Silent.Prediction=0.13573;elseif (v85<(65 + 45)) then getgenv().Xolium.Silent.Prediction=0.13334;elseif (v85<(40 + 80)) then getgenv().Xolium.Silent.Prediction=0.14552 -0;elseif (v85<(1994 -(1732 + 132))) then getgenv().Xolium.Silent.Prediction=0.14376;elseif (v85<(390 -(28 + 222))) then getgenv().Xolium.Silent.Prediction=0.15669 + 0;elseif (v85<(339 -189)) then getgenv().Xolium.Silent.Prediction=0.12234;elseif (v85<160) then getgenv().Xolium.Silent.Prediction=0.15214 -0;elseif (v85<(35 + 135)) then getgenv().Xolium.Silent.Prediction=890.16262 -(41 + 849);elseif (v85<(507 -327)) then getgenv().Xolium.Silent.Prediction=0.19231 + 0;elseif (v85<(543 -353)) then getgenv().Xolium.Silent.Prediction=0.19284 + 0;elseif (v85<200) then getgenv().Xolium.Silent.Prediction=843.16594 -(822 + 21);elseif (v85<210) then getgenv().Xolium.Silent.Prediction=0.16942 -0;end v82=6 -4;end if (v82==2) then wait(1 + 0);break;end if (v82==(0 -0)) then v83=game:GetService(v7("\48\79\85\42\232","\99\59\52\94\155")).Network.ServerStatsItem[v7("\1\126\194\90\160\61\182\169\34","\69\31\182\59\128\109\223\199")]:GetValueString();v84=string.split(v83," ")[1];v82=1343 -(423 + 919);end end end
+if getgenv().lloaded == true then
+ return
+end
+getgenv().lloaded = true
+
+    local Aiming = loadstring(game:HttpGet("https://raw.githubusercontent.com/FederalAlt/Tigger/main/lalala"))()
+    
+    Aiming.TeamCheck(false)
+    
+    
+    
+    local Workspace = game:GetService("Workspace")
+    
+    local Players = game:GetService("Players")
+    
+    local RunService = game:GetService("RunService")
+    
+    local UserInputService = game:GetService("UserInputService")
+    
+    
+    
+    local LocalPlayer = Players.LocalPlayer
+    
+    local Mouse = LocalPlayer:GetMouse()
+    
+    local CurrentCamera = Workspace.CurrentCamera
+    
+    
+    ---------------------------------------------------------------
+    local DaHoodSettings = {
+        SilentAim = getgenv().Xolium.Silent.Enabled,
+        Prediction = getgenv().Xolium.Silent.Prediction,
+    }
+    Aiming.FOV = getgenv().Xolium.Fov.Silent.Radius  
+    Aiming.ShowFOV = getgenv().Xolium.Fov.Silent.Visible
+    Aiming.FOVColour = getgenv().Xolium.Fov.Silent.Color
+    Aiming.HitChance = getgenv().Xolium.Silent.HitChance
+    Aiming.VisibleCheck = getgenv().Xolium.Checks.Wall.Silent 
+    Aiming.SelectedPart = getgenv().Xolium.Silent.Aimpart
+    function Aiming.Check()
+    
+        if not (Aiming.Enabled == true and Aiming.Selected ~= LocalPlayer and Aiming.SelectedPart ~= nil) then
+    
+            return false
+    
+        end
+    
+        local Character = Aiming.Character(Aiming.Selected)
+    
+        local KOd = Character:WaitForChild("BodyEffects")["K.O"].Value
+    
+        local Grabbed = Character:FindFirstChild("GRABBING_CONSTRAINT") ~= nil
+    
+        if getgenv().Xolium.Checks.Knocked.Silent and (KOd or Grabbed) then
+    
+            return false
+    
+        end
+    
+        return true
+    
+    end
+  task.spawn(function()
+    
+        while task.wait() do
+    
+            if getgenv().Xolium.Silent.Resolver and Aiming.Selected ~= nil and (Aiming.Selected.Character)  then
+    
+                local oldVel = game.Players[Aiming.Selected.Name].Character.HumanoidRootPart.Velocity
+    
+                game.Players[Aiming.Selected.Name].Character.HumanoidRootPart.Velocity = Vector3.new(oldVel.X, -0, oldVel.Z)
+    
+            end 
+    
+        end
+    
+    end)
+
+    game:GetService("RunService").Heartbeat:Connect(
+                                function()
+                                    if
+                                        getgenv().Xolium.Range.Enabled == true and Aiming.Selected ~= nil and (Aiming.Selected.Character) then
+                                        if
+                                            (game.Players[Aiming.Selected.Name].Character.HumanoidRootPart.Position -
+                                                game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <
+                                                20
+                                         then
+                                             if getgenv().Xolium.Range.Type.Fov then
+                                            Aiming.FOV = getgenv().Xolium.Range.CloseFov
+                                            end
+                                            if getgenv().Xolium.Range.Type.Prediction then
+                                                getgenv().Xolium.Silent.Prediction = getgenv().Xolium.Range.ClosePrediction
+                                          end
+                                            
+                                        elseif
+                                            (game.Players[Aiming.Selected.Name].Character.HumanoidRootPart.Position -
+                                                game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <
+                                                60
+                                         then
+                                            
+                                            if getgenv().Xolium.Range.Type.Fov then
+                                            Aiming.FOV = getgenv().Xolium.Range.MidFov
+                                            end
+                                            if getgenv().Xolium.Range.Type.Prediction then
+                                                getgenv().Xolium.Silent.Prediction = getgenv().Xolium.Range.MidPrediction
+                                          end
+                                        elseif
+                                            (game.Players[Aiming.Selected.Name].Character.HumanoidRootPart.Position -
+                                                game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <
+                                                110
+                                         then
+                                           if getgenv().Xolium.Range.Type.Fov then
+                                            Aiming.FOV = getgenv().Xolium.Range.FarFov
+                                            end
+                                            if getgenv().Xolium.Range.Type.Prediction then
+                                                getgenv().Xolium.Silent.Prediction = getgenv().Xolium.Range.FarPrediction
+                                          end
+                                            elseif 
+                                            (game.Players[Aiming.Selected.Name].Character.HumanoidRootPart.Position -
+                                                game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <
+                                                math.huge
+                                         then
+                                           
+                                            if getgenv().Xolium.Range.Type.Fov then
+                                            Aiming.FOV = getgenv().Xolium.Range.VeryFarFov
+                                            end
+                                            if getgenv().Xolium.Range.Type.Prediction then
+                                                getgenv().Xolium.Silent.Prediction = getgenv().Xolium.Range.VeryFarPrediction
+                                          end
+                                        end
+                                    end
+                                end
+                            )
+    
+    
+    
+    local __index
+    
+    __index = hookmetamethod(game, "__index", function(t, k)
+    
+        if (t:IsA("Mouse") and (k == "Hit" or k == "Target") and Aiming.Check()) then
+    
+            local SelectedPart = Aiming.SelectedPart
+    
+            if (DaHoodSettings.SilentAim and (k == "Hit" or k == "Target")) then
+    
+                local Hit = SelectedPart.CFrame + (SelectedPart.Velocity * DaHoodSettings.Prediction)
+    
+                return (k == "Hit" and Hit or SelectedPart)
+    
+            end
+    
+        end
+    
+    
+    
+        return __index(t, k)
+    
+    end)
+    
+Mouse.KeyDown:Connect(function(Key)
+    local Keybind = getgenv().Xolium.Silent.Keybind:lower()
+    if (Key == Keybind) then
+            if Aiming.Enabled == true then
+				Aiming.Enabled = false
+            else
+				Aiming.Enabled = true
+    end 
+  end 
+end)
+
+
+    local Plr  = nil
+    
+    local Players, Client, Mouse, RS, Camera =
+        game:GetService("Players"),
+        game:GetService("Players").LocalPlayer,
+        game:GetService("Players").LocalPlayer:GetMouse(),
+        game:GetService("RunService"),
+        game:GetService("Workspace").CurrentCamera
+    
+    local TracerCircle = Drawing.new("Circle")
+    
+    TracerCircle.Color = getgenv().Xolium.Fov.Tracer.Color
+    TracerCircle.Thickness = 1
+    
+    local UpdateFOV = function ()
+        if ( not TracerCircle) then
+            return TracerCircle
+        end
+        TracerCircle.Visible  = getgenv().Xolium.Fov.Tracer.Visible
+        TracerCircle.Radius   = getgenv().Xolium.Fov.Tracer.Radius * 3
+        TracerCircle.Color = getgenv().Xolium.Fov.Tracer.Color
+        TracerCircle.Position = Vector2.new(Mouse.X, Mouse.Y + (game:GetService("GuiService"):GetGuiInset().Y))
+        return TracerCircle
+    end
+    
+    RS.Heartbeat:Connect(UpdateFOV)
+    
+    local WallCheck = function(destination, ignore)
+        local Origin    = Camera.CFrame.p
+        local CheckRay  = Ray.new(Origin, destination - Origin)
+        local Hit       = game.workspace:FindPartOnRayWithIgnoreList(CheckRay, ignore)
+        return Hit      == nil
+    end
+    
+    local WTS = function (Object)
+        local ObjectVector = Camera:WorldToScreenPoint(Object.Position)
+        return Vector2.new(ObjectVector.X, ObjectVector.Y)
+    end
+    
+    local IsOnScreen = function (Object)
+        local IsOnScreen = Camera:WorldToScreenPoint(Object.Position)
+        return IsOnScreen
+    end
+    
+    local FilterObjs = function (Object)
+        if string.find(Object.Name, "Gun") then
+            return
+        end
+        if table.find({"Part", "MeshPart", "BasePart"}, Object.ClassName) then
+            return true
+        end
+    end
+    
+    local ClosestPlrFromMouse2 = function()
+        local Target, Closest = nil, TracerCircle.Radius * 1.27
+        
+        for _ ,v in pairs(Players:GetPlayers()) do
+            if (v.Character and v ~= Client and v.Character:FindFirstChild("HumanoidRootPart")) then
+                if getgenv().Xolium.Checks.Wall.Tracer then
+                    local Position, OnScreen = Camera:WorldToScreenPoint(v.Character.HumanoidRootPart.Position)
+                    local Distance = (Vector2.new(Position.X, Position.Y) - Vector2.new(Mouse.X, Mouse.Y)).Magnitude
+            
+                    if (Distance < Closest and OnScreen) and WallCheck(v.Character.HumanoidRootPart.Position, {Client, v.Character}) then
+                        Closest = Distance
+                        Target = v
+                    end
+                    end
+                end
+            end
+        return Target
+    end
+    
+
+    
+    local GetClosestBodyPartV2 = function (character)
+        local ClosestDistance = 1/0
+        local BodyPart = nil
+        
+        if (character and character:GetChildren()) then
+            for _,  x in next, character:GetChildren() do
+                if FilterObjs(x) and IsOnScreen(x) then
+                    local Distance = (WTS(x) - Vector2.new(Mouse.X, Mouse.Y)).Magnitude
+                    if (Distance < ClosestDistance) then
+                        ClosestDistance = Distance
+                        BodyPart = x
+                    end
+                end
+            end
+        end
+        return BodyPart
+    end
+    
+    Mouse.KeyDown:Connect(function(Key)
+        local Keybind = getgenv().Xolium.Tracer.Keybind:lower()
+        if (Key == Keybind) then
+            if getgenv().Xolium.Tracer.Enabled == true then
+                IsTargetting = not IsTargetting
+                if IsTargetting then
+                    Plr = ClosestPlrFromMouse2()
+                else
+                    if Plr ~= nil then
+                        Plr = nil
+                        IsTargetting = false
+                    end
+                end
+            end
+        end
+    end)
+
+    RS.Heartbeat:Connect(function()
+        if getgenv().Xolium.Tracer.Enabled == true then
+            if getgenv().Xolium.Tracer.Resolver == true and Plr and Plr.Character and Plr.Character:WaitForChild(getgenv().Xolium.Tracer.AimPart) and Plr.Character:WaitForChild("HumanoidRootPart").Velocity.magnitude > 70 then
+                pcall(function()
+                    local TargetVelv3 = Plr.Character[getgenv().Xolium.Tracer.AimPart]
+                    TargetVelv3.Velocity = Vector3.new(0, 0, 0)
+                    TargetVelv3.AssemblyLinearVelocity = Vector3.new(0, 0, 0)
+                end)
+            end
+            if getgenv().Xolium.Tracer.Resolver == true and Plr and Plr.Character and Plr.Character:WaitForChild(getgenv().Xolium.Tracer.AimPart)then
+                pcall(function()
+                    local TargetVelv4 = Plr.Character[getgenv().Xolium.Tracer.AimPart]
+                    TargetVelv4.Velocity = Vector3.new(TargetVelv4.Velocity.X, 0, TargetVelv4.Velocity.Z)
+                    TargetVelv4.AssemblyLinearVelocity = Vector3.new(TargetVelv4.Velocity.X, 0, TargetVelv4.Velocity.Z)
+                end)
+            end
+        end
+    end)
+
+    RS.RenderStepped:Connect(function()
+        if getgenv().Xolium.Tracer.Enabled == true then
+            if getgenv().Xolium.Checks.Knocked.Tracer == true and Plr and Plr.Character then 
+                local KOd = Plr.Character:WaitForChild("BodyEffects")["K.O"].Value
+                local Grabbed = Plr.Character:FindFirstChild("GRABBING_CONSTRAINT") ~= nil
+                if KOd or Grabbed then
+                    Plr = nil
+                    IsTargetting = false
+                end
+            end
+            if getgenv().Xolium.Checks.Knocked.Tracer == true and Plr and Plr.Character:FindFirstChild("Humanoid") then
+                if Plr.Character.Humanoid.health < 0.1 then
+                    Plr = nil
+                    IsTargetting = false
+                end
+            end
+            if getgenv().Xolium.Tracer.Predict and Plr and Plr.Character and Plr.Character:FindFirstChild(getgenv().Xolium.Tracer.AimPart) then
+                if getgenv().Xolium.Tracer.Shake then
+                    local Main = CFrame.new(Camera.CFrame.p,Plr.Character[getgenv().Xolium.Tracer.AimPart].Position + Plr.Character[getgenv().Xolium.Tracer.AimPart].Velocity * getgenv().Xolium.Tracer.Prediction +
+                    Vector3.new(
+                        math.random(-getgenv().Xolium.Tracer.ShakeValue.X, getgenv().Xolium.Tracer.ShakeValue.X),
+                        math.random(-getgenv().Xolium.Tracer.ShakeValue.Y, getgenv().Xolium.Tracer.ShakeValue.Y),
+                        math.random(-getgenv().Xolium.Tracer.ShakeValue.Z, getgenv().Xolium.Tracer.ShakeValue.Z)
+                    ) * 0.1)
+                    Camera.CFrame = Camera.CFrame:Lerp(Main, getgenv().Xolium.Tracer.Smoothness, Enum.EasingStyle.Elastic, Enum.EasingDirection.InOut, Enum.EasingStyle.Sine, Enum.EasingDirection.Out)
+                else
+                    local Main = CFrame.new(Camera.CFrame.p,Plr.Character[getgenv().Xolium.Tracer.AimPart].Position + Plr.Character[getgenv().Xolium.Tracer.AimPart].Velocity * getgenv().Xolium.Tracer.Prediction)
+                    Camera.CFrame = Camera.CFrame:Lerp(Main, getgenv().Xolium.Tracer.Smoothness, Enum.EasingStyle.Elastic, Enum.EasingDirection.InOut, Enum.EasingStyle.Sine, Enum.EasingDirection.Out)
+                end
+            elseif getgenv().Xolium.Tracer.Predict == false and Plr and Plr.Character and Plr.Character:FindFirstChild(getgenv().Xolium.Tracer.AimPart) then
+                if getgenv().Xolium.Tracer.Shake then
+                    local Main = CFrame.new(Camera.CFrame.p,Plr.Character[getgenv().Xolium.Tracer.AimPart].Position +
+                    Vector3.new(
+                        math.random(-getgenv().Xolium.Tracer.ShakeValue.X, getgenv().Xolium.Tracer.ShakeValue.X),
+                        math.random(-getgenv().Xolium.Tracer.ShakeValue.Y, getgenv().Xolium.Tracer.ShakeValue.Y),
+                        math.random(-getgenv().Xolium.Tracer.ShakeValue.Z, getgenv().Xolium.Tracer.ShakeValue.Z)
+                    ) * 0.1)
+                    Camera.CFrame = Camera.CFrame:Lerp(Main, getgenv().Xolium.Tracer.Smoothness, Enum.EasingStyle.Elastic, Enum.EasingDirection.InOut, Enum.EasingStyle.Sine, Enum.EasingDirection.Out)
+                else
+                    local Main = CFrame.new(Camera.CFrame.p,Plr.Character[getgenv().Xolium.Tracer.AimPart].Position)
+                    Camera.CFrame = Camera.CFrame:Lerp(Main, getgenv().Xolium.Tracer.Smoothness, Enum.EasingStyle.Elastic, Enum.EasingDirection.InOut, Enum.EasingStyle.Sine, Enum.EasingDirection.Out)
+                end
+            end
+        end
+    end)
+
+    task.spawn(function ()
+        while task.wait() do
+            if Plr then
+                if getgenv().Xolium.Tracer.Enabled and (Plr.Character) and getgenv().Xolium.Tracer.NearestPart then
+                    getgenv().Xolium.Tracer.AimPart = tostring(GetClosestBodyPartV2(Plr.Character))
+                end
+            if getgenv().Xolium.Silent.Enabled then
+                getgenv().Xolium.Silent.AimPart = tostring(GetClosestBodyPartV2)
+            end
+            end
+end
+    end)
+    
+
+    
+
+    while getgenv().Xolium.Silent.AutoPrediction == true do
+        local ping = game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString()
+        local pingValue = string.split(ping, " ")[1]
+        local pingNumber = tonumber(pingValue)
+            if pingNumber < 30 then
+            getgenv().Xolium.Silent.Prediction = 0.12588
+            elseif pingNumber < 40 then
+                getgenv().Xolium.Silent.Prediction = 0.11911
+            elseif pingNumber < 50 then
+                getgenv().Xolium.Silent.Prediction = 0.12471
+            elseif pingNumber < 60 then
+                getgenv().Xolium.Silent.Prediction = 0.12766
+            elseif pingNumber < 70 then
+                getgenv().Xolium.Silent.Prediction = 0.12731
+            elseif pingNumber < 80 then
+                getgenv().Xolium.Silent.Prediction = 0.12951
+            elseif pingNumber < 90 then
+                getgenv().Xolium.Silent.Prediction = 0.13181
+            elseif pingNumber < 100 then
+                getgenv().Xolium.Silent.Prediction = 0.13573
+            elseif pingNumber < 110 then
+                getgenv().Xolium.Silent.Prediction = 0.13334
+            elseif pingNumber < 120 then
+                getgenv().Xolium.Silent.Prediction = 0.14552
+            elseif pingNumber < 130 then
+                getgenv().Xolium.Silent.Prediction = 0.14376
+            elseif pingNumber < 140 then
+                getgenv().Xolium.Silent.Prediction = 0.15669
+            elseif pingNumber < 150 then
+                getgenv().Xolium.Silent.Prediction = 0.12234
+            elseif pingNumber < 160 then
+                getgenv().Xolium.Silent.Prediction = 0.15214
+            elseif pingNumber < 170 then
+                getgenv().Xolium.Silent.Prediction = 0.16262
+            elseif pingNumber < 180 then
+                getgenv().Xolium.Silent.Prediction = 0.19231
+            elseif pingNumber < 190 then
+                getgenv().Xolium.Silent.Prediction = 0.19284
+            elseif pingNumber < 200 then
+                getgenv().Xolium.Silent.Prediction = 0.16594
+            elseif pingNumber < 210 then
+                getgenv().Xolium.Silent.Prediction = 0.16942
+        
+        end
+        wait(1)
+    end
