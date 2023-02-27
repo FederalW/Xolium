@@ -1,3 +1,19 @@
+if getgenv().xoliumloaded == true then
+            if getgenv().Xolium.Options.Notifications == true then
+            
+            game.StarterGui:SetCore(
+                                "SendNotification",
+                                {
+                                    Title = "Xolium",
+                                    Text = "Script Already Loaded Copied Settings.",
+                                    Duration = 1.5
+                                }
+                            )
+                        end
+                return
+            end
+            getgenv().xoliumloaded = true
+
 script_key=getgenv().Xolium.Options.Key;
 ([[
                 This script has been licensed using Luarmor
